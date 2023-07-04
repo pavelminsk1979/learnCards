@@ -21,6 +21,9 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
 
 
 
+export type InputProps= ComponentPropsWithoutRef<'input'>
+
+export const Input = ()=>{}
 
 
 
