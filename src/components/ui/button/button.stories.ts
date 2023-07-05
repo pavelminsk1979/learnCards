@@ -19,6 +19,17 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/*
+
+export const Primary1: Story = {
+render: ()=> <Button label ={'Button'}/>
+} /!* надо изменить расширение файла на  tsx   и такой синтаксис
+позволит использовать хуки И БУДЕТ наглядно как взаимодействовать
+с компонентой*!/
+
+*/
+
+
 export const Primary: Story = {
     args: {
         variant: 'primary',
