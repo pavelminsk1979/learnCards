@@ -2,6 +2,7 @@
 /*import {Button} from "@/components/ui/button";*/
 
 import {Button} from "./components/ui/button";
+import {Logout} from "./assets/icons/log-out.tsx";
 
 export function App() {
     return <div style={{display:'flex', gap:'1rem', padding:'1rem'}}>
@@ -35,6 +36,10 @@ export function App() {
 
         <Button disabled={true} variant={'link'}>
             Hello
+        </Button>
+
+        <Button >
+           <Logout/> Hello
         </Button>
 
     </div>
