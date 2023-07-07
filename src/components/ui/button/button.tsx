@@ -17,15 +17,14 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
 
     return (
 
+       /* Первая переменная, s[variant], предполагает, что в объекте s есть свойство с именем, соответствующим значению переменной variant. Значение этого свойства будет добавлено в className.*/
+
         <Component className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className} ${s.button}`} {...rest} />
     )
 }
 
 
 
-export type InputProps= ComponentPropsWithoutRef<'input'>
-
-export const Input = ()=>{}
 
 
 
