@@ -7,7 +7,7 @@ import {Input} from "./components/ui/input/input.tsx";
 export function App() {
     return <div>
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
-            <Button>
+            <Button >
                 Hello
             </Button>
 
@@ -27,18 +27,27 @@ export function App() {
                 <Logout width="23" height="23"/> Hello
             </Button>
         </div >
-        <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
-        <Input
-               placeholder={'Input'}
-               title={'Input'}
-               variant='email'/>
-        <Input
-            placeholder={'Input'}
-               title={'Input'}
-               variant='password'/>
-        <Input
-            placeholder={'Input search'}
-                variant='text'/>
+        <div style={{ padding: '1rem'}}>
+            <div>
+                <Input
+                       placeholder={'Input'}
+                       label={'Input'}
+                       type='email'/>
+            </div>
+            <div>
+                <Input
+                       placeholder={'Input'}
+                    label={'Input'}
+                       type='password'/>
+            </div>
+            <div>
+                <Input
+                    placeholder={'Input search'}
+                    type='text'/>
+            </div>
+
+
+
         </div>
     </div>
 }

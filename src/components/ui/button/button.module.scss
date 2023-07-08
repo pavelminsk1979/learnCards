@@ -14,7 +14,7 @@
   gap: 0.625rem;  /*определяет расстояние между элементами в
                           гибком контейнере*/
 
-   &:focus-visible {
+   &:focus-visible {  /*использование кнопки Tab*/
      outline: 2px solid var(--color-info-700);
    }
 }
@@ -23,11 +23,11 @@
 .primary {
   background: var(--color-accent-500);
  /* box-shadow: 0px 4px 18px 0px *//*позволяет добавить тень вокруг элемента.*/
-  &:hover {
+  &:hover { /*наведение курсора на кнопку*/
     background: var(--color-accent-300);
     box-shadow: 0px 4px 18px 0px rgba(140, 97, 255, 0.35);
   }
-  &:active {
+  &:active {  /*клик по кнопке*/
     background: var(--color-accent-700);
     box-shadow: 0px 4px 18px 0px rgba(140, 97, 255, 0.35);
   }

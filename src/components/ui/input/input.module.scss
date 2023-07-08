@@ -1,35 +1,170 @@
-
-.common{
-  width: 17.75rem;
-  height: 1.85rem;
+.label{
   font-family: Roboto;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
-  color: var(--color-dark-100);
+  color:var(--color-dark-100) ;
 }
 
+.blockIconInput{
+  width: 17.75rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-dark-500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {   /*отступы внутренние  иконок ОТ РАМКИ*/
+    margin: 0 5px;
+  }
+  &:hover{
+    background-color: var(--color-dark-700);
+  }
+/*  &:active{
+    border: 1px solid white;
+  }*/
+  &:focus-within{
+    border:2px solid var(--color-info-700);
+  }
+/*  &:disabled{
+    border:1px solid var(--color-dark-500);
+  }*/
+}
+
+
+.error{
+  border: 1px solid var(--color-danger-500);
+  width: 17.75rem;
+  height: 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    margin: 0 5px;
+  }
+}
+
+
+.input{
+  height: 100%;
+  width: 14.4rem;
+  outline: none;  /*занулил  границу ИНПУТА которая
+появляется КОГДА КЛИКАЮ НА НЕГО */
+  border: none; /*занулил  границу ИНПУТА */
+  background-color: transparent;/* прозрачный фон*/
+}
+.errorInput{
+  height: 100%;
+  width: 14.4rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--color-danger-500) ;
+}
+
+.svgClose {
+  width: 18px;
+  height: 18px;
+}
+
+.textError{
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-danger-500)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.common{
+  width: 17.75rem;
+  height: 3.75rem;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  display:flex;
+  flex-direction: column;
+  justify-content:flex-end;
+
+}
+
+.label{
+  color:var(--color-dark-100) ;
+}
 .blockImputIcon{
   border: 1px solid var(--color-dark-100);
   display: flex;
   img {
     margin: 0 5px;
-  }    /*задает отступы для изображения внутри блока.
+  }    !*задает отступы для изображения внутри блока.
   Конструкция img { ... } означает, что
-   мы применяем стили к элементу img.*/
+   мы применяем стили к элементу img.*!
+  &:hover{
+    border: 1px solid var(--color-dark-100);
+    background-color: var(--color-dark-700);
+
+  }
+  &:active{
+    border: 1px solid white;
+  }
 }
 
 
 
 .input {
-  outline: none; /* занулил  границу ИНПУТА которая
-          появляется КОГДА КЛИКАЮ НА НЕГО */
-  border: none;/* занулил  границу ИНПУТА */
-  background-color: transparent; /*прозрачный фон*/
+  outline: none; !* занулил  границу ИНПУТА которая
+          появляется КОГДА КЛИКАЮ НА НЕГО *!
+  border: none;!* занулил  границу ИНПУТА *!
+  background-color: transparent; !*прозрачный фон*!
   width: 100%;
   height: 1.85rem;
-  font-size: 1rem;
+  font-size: 1rem; !*размер шрифта placeholder*!
+
+  &:hover{
+    border: none;
+  }
 }
 
+::placeholder {   !*нацеливается на текст заполнителя ..устанавливает его цвет *!
+  color: var(--color-dark-100);
+}
 
-
+.error{
+  border: 1px solid var(--color-danger-500);
+  display: flex;
+  img {
+    margin: 0 5px;
+  }
+  ::placeholder {   !*нацеливается на текст заполнителя ..устанавливает его цвет *!
+    color: var(--color-danger-500);
+  }
+}
+.textError{
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-danger-500)
+}*/
