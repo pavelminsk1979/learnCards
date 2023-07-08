@@ -10,30 +10,37 @@ type  PropsInputBaseType = {
     type?: 'email' | 'password' | 'text'
     className?: string
     error?: string
+    callback?: (valueInput: string) => void
 } & ComponentPropsWithoutRef<'input'>
 
 
 export const Input = (props: PropsInputBaseType) => {
-    const {type = 'text',
+    const {
+        type = 'text',
         label,
         className,
         error,
-        ...rest} = props
+        callback,
+        ...rest
+    } = props
 
-    const [valueInput,setValueInput]= useState('')
+    const [valueInput, setValueInput] = useState('')
 
-    const [openCloseValueInput,setOpenCloseValueInput]= useState(true)
+    const [openCloseValueInput, setOpenCloseValueInput] = useState(true)
 
-    const handlerCreateValueInput = (event:ChangeEvent<HTMLInputElement>) => {
-      /*  if(type==='text'){
-            setValueInput(event.currentTarget.value)
-        }*/
+    const handlerCreateValueInput = (event: ChangeEvent<HTMLInputElement>) => {
+        /*  if(type==='text'){
+              setValueInput(event.currentTarget.value)
+          }*/
         setValueInput(event.currentTarget.value)
     }
-    const handlerOnKeyPress = (event:KeyboardEvent<HTMLInputElement>) => {
-        if(type==='text'){
-            if(event.key==='Enter'){
-                alert(valueInput)
+    const handlerOnKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (type === 'text') {
+            if (event.key === 'Enter') {
+                alert(valueInput)/* callback от сюда будет передавать  значение с инпута*/
+                if (callback) {
+                    callback(valueInput)
+                }
             }
         }
     }
@@ -43,9 +50,16 @@ export const Input = (props: PropsInputBaseType) => {
     const handlerIconEye = () => {
         setOpenCloseValueInput(!openCloseValueInput)
     }
-let typeValue='text'
-    if(openCloseValueInput){typeValue='password'}
-    if(type==='email'){typeValue='email'}
+    let typeValue = 'text'
+    if (openCloseValueInput) {
+        typeValue = 'password'
+    }
+    if (type === 'email') {
+        typeValue = 'email'
+    }
+    if (type === 'text') {
+        typeValue = 'text'
+    }
     return (
         <>
 
@@ -54,10 +68,10 @@ let typeValue='text'
             <div className={error ? st.error : st.blockIconInput}>
                 {type === 'text' && <img src={InputSearch}/>}
 
-                <input className={`${st[type]}  ${className} ${error ? st.errorInput :st.input}`}
-                        type={typeValue}
+                <input className={`${st[type]}  ${className} ${error ? st.errorInput : st.input}`}
+                       type={typeValue}
                        value={valueInput}
-                           onChange={handlerCreateValueInput}
+                       onChange={handlerCreateValueInput}
                        onKeyPress={handlerOnKeyPress}
                        {...rest}/>
 
@@ -66,7 +80,7 @@ let typeValue='text'
                     className={st.svgClose}
                     src={Close}/>}
 
-                {type === 'password' && <img  onClick={handlerIconEye} src={IconEye}/>}
+                {type === 'password' && <img onClick={handlerIconEye} src={IconEye}/>}
             </div>
             {error && <div className={st.textError}>{error}</div>}
         </>
