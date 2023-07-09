@@ -3,8 +3,12 @@
 import {Button} from "./components/ui/button";
 import {Logout} from "./assets/icons/log-out.tsx";
 import {Input} from "./components/ui/input/input.tsx";
+import {useState} from "react";
 
 export function App() {
+
+    const [valueInput, setValueInput] = useState('')
+
     return <div>
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
             <Button >
@@ -29,19 +33,23 @@ export function App() {
         </div >
         <div style={{ padding: '1rem'}}>
             <div>
-                <Input
+                <Input valueInput={valueInput}
+                       setValueInput={setValueInput}
                        placeholder={'Input'}
                        label={'Input'}
                        type='email'/>
             </div>
             <div>
-                <Input
+                <Input valueInput={valueInput}
+                       setValueInput={setValueInput}
                        placeholder={'Input'}
                     label={'Input'}
-                       type='password'/>
+                       type="password"
+                      />
             </div>
             <div>
-                <Input
+                <Input valueInput={valueInput}
+                       setValueInput={setValueInput}
                     placeholder={'Input search'}
                     type='text'/>
             </div>
