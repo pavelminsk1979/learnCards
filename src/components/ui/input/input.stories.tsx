@@ -1,7 +1,7 @@
 
 import {Meta, StoryObj} from "@storybook/react";
 import {Input} from "./input.tsx";
-/*import {action} from '@storybook/addon-actions'*/
+import {action} from '@storybook/addon-actions'
 
 
 const meta = {
@@ -38,6 +38,7 @@ export const Password: Story = {
 
 export const Text: Story = {
     args: {
+        callback:action('Send ValueInput'),
         type: 'text',
         label:'Input',
         disabled: false,

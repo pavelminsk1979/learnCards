@@ -8,6 +8,9 @@ import {useState} from "react";
 export function App() {
 
     const [valueInput, setValueInput] = useState('')
+    const handlerSendInputValue = (valueInput:string) => {
+      alert(valueInput)
+    }
 
     return <div>
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
@@ -48,7 +51,8 @@ export function App() {
                       />
             </div>
             <div>
-                <Input valueInput={valueInput}
+                <Input callback={handlerSendInputValue}
+                    valueInput={valueInput}
                        setValueInput={setValueInput}
                     placeholder={'Input search'}
                     type='text'/>

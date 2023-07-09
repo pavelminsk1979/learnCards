@@ -12,6 +12,7 @@ type  PropsInputBaseType = {
     error?: string
     setValueInput?: (valueInput: string) => void
     valueInput?: string
+    callback?:(valueInput: string)=>void
 } & ComponentPropsWithoutRef<'input'>
 
 
@@ -22,6 +23,7 @@ export const Input = (props: PropsInputBaseType) => {
         className,
         error,
         valueInput,
+        callback,
         setValueInput,
         ...rest
     } = props
@@ -53,7 +55,9 @@ export const Input = (props: PropsInputBaseType) => {
 
     const handlerOnKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            alert(valueInput)
+            if(callback){
+                callback(valueInput??'')
+            }
         }
     }
 
