@@ -1,9 +1,15 @@
-/*import {Button} from "@/components/ui/button";*/
 
 import {Button} from "./components/ui/button";
 import {Logout} from "./assets/icons/log-out.tsx";
 import {Input} from "./components/ui/input/input.tsx";
 import {useState} from "react";
+import { MenuDropDown} from "./components/ui/dropDownMenu/dropDownMenu.tsx";
+import {MyProfileIcon} from "./assets/icons/myProfileIcon.tsx";
+import {LearnIcon} from "./assets/icons/learnIcon.tsx";
+import {EditIcon} from "./assets/icons/editIcon.tsx";
+import {DeleteIcon} from "./assets/icons/deleteIcon.tsx";
+import UserIcon from "./assets/icons/userIcon.svg";
+
 
 export function App() {
 
@@ -11,6 +17,34 @@ export function App() {
     const handlerSendInputValue = (valueInput:string) => {
       alert(valueInput)
     }
+
+
+    const functon1 = () => {
+      alert('Есть реакция1')
+    }
+    const functon2 = () => {
+        alert('Есть реакция2')
+    }
+    const functon3 = () => {
+        alert('Есть реакция3')
+    }
+    const functon4 = () => {
+        alert('Есть реакция4')
+    }
+    const functon5 = () => {
+        alert('Есть реакция5')
+    }
+
+    const state1=[
+        {id:1,icon:<MyProfileIcon width="22" height="22"/>,name:'My Profile',callback:functon1},
+        {id:2,icon:<Logout width="20" height="20"/>,name:'Sing Out',callback:functon2}
+    ]
+    const state2=[
+        {id:3,icon:<LearnIcon width="22" height="22"/>,name:'Learn',callback:functon3},
+        {id:4,icon:<EditIcon width="20" height="20"/>,name:'Edit',callback:functon4},
+        {id:5,icon:<DeleteIcon width="20" height="20"/>,name:'Delete',callback:functon5}
+    ]
+    const dataHeader = {icon:<img src={UserIcon}/>,name:'Павел',gmail:'p&pavel@gmail.com'}
 
     return <div>
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
@@ -58,8 +92,10 @@ export function App() {
                     type='text'/>
             </div>
 
-
-
+        </div>
+        <div style={{padding: '8rem'}}>
+            <MenuDropDown data={state1} dataHeader={dataHeader}/>
+            <MenuDropDown data={state2}/>
         </div>
     </div>
 }

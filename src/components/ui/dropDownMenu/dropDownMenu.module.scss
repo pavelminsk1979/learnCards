@@ -1,0 +1,48 @@
+
+
+.blockMenu {
+ /* width: 200px;
+  height: 140px;*/
+  margin: 8px 0 0 8px;
+  background-color: var(--color-dark-700);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.blockIconNameEmail {
+  display: flex;
+  gap: 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.gmail {
+  color: var(--color-dark-100);
+}
+
+.line {
+  width: 96%;
+  border: 1px solid var(--color-dark-500);
+}
+
+.repeatBloks {
+  height: 35px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  &:focus {
+    outline: none;
+  }
+}
+
+
