@@ -9,16 +9,20 @@ import {LearnIcon} from "./assets/icons/learnIcon.tsx";
 import {EditIcon} from "./assets/icons/editIcon.tsx";
 import {DeleteIcon} from "./assets/icons/deleteIcon.tsx";
 import UserIcon from "./assets/icons/userIcon.svg";
+import {stateTabComponentType, TabComponent} from "./components/ui/tabComponent/tabComponent.tsx";
 
 
 export function App() {
-
+//Input
     const [valueInput, setValueInput] = useState('')
     const handlerSendInputValue = (valueInput:string) => {
       alert(valueInput)
     }
 
 
+
+
+//DropDownMeny
     const functon1 = () => {
       alert('Есть реакция1')
     }
@@ -46,7 +50,43 @@ export function App() {
     ]
     const dataHeader = {icon:<img src={UserIcon}/>,name:'Павел',gmail:'p&pavel@gmail.com'}
 
+
+
+
+
+
+    //TabComponent
+
+const [active,setActive] = useState('My')
+
+    const functionTabComponent1 = (name:string) => {
+      /*alert('Реакция на TabComponent1')*/
+        setActive(name)
+    }
+    const functionTabComponent2 = (name:string) => {
+      /*  alert('Реакция на TabComponent2')*/
+        setActive(name)
+    }
+    const functionTabComponent3 = (name:string) => {
+        /*alert('Реакция на TabComponent3')*/
+        setActive(name)
+    }
+    const stateTabComponent:stateTabComponentType[] = [
+        {id:'tab1',name:'My',callback:functionTabComponent1,disabled:false},
+        {id:'tab2',name:'All',callback:functionTabComponent2,disabled:false},
+        {id:'tab3',name:'Трейтья',callback:functionTabComponent3,disabled:false}
+    ]
+
+
+
+
+
+
+
+
+
     return <div>
+        {/*Button*/}
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
             <Button >
                 Hello
@@ -68,6 +108,12 @@ export function App() {
                 <Logout width="23" height="23"/> Hello
             </Button>
         </div >
+
+
+
+
+
+        {/*Input*/}
         <div style={{ padding: '1rem'}}>
             <div>
                 <Input valueInput={valueInput}
@@ -93,9 +139,27 @@ export function App() {
             </div>
 
         </div>
+
+
+
+
+
+       {/* MenuDropDown*/}
         <div style={{padding: '8rem'}}>
             <MenuDropDown data={state1} dataHeader={dataHeader}/>
             <MenuDropDown data={state2}/>
+        </div>
+
+
+
+
+
+
+
+
+       {/* TabComponent*/}
+        <div style={{padding: '8rem'}}>
+            <TabComponent active={active} data={stateTabComponent}/>
         </div>
     </div>
 }
