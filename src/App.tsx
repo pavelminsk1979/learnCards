@@ -10,9 +10,20 @@ import {EditIcon} from "./assets/icons/editIcon.tsx";
 import {DeleteIcon} from "./assets/icons/deleteIcon.tsx";
 import UserIcon from "./assets/icons/userIcon.svg";
 import {stateTabComponentType, TabComponent} from "./components/ui/tabComponent/tabComponent.tsx";
+import {Header} from "./components/ui/aHeader/header.tsx";
 
 
 export function App() {
+
+    //Header
+    const [isLoggedIn,setIsLoggedIn]=useState(false)
+const handlerOnClick = () => {
+    setIsLoggedIn(true)
+}
+
+
+
+
 //Input
     const [valueInput, setValueInput] = useState('')
     const handlerSendInputValue = (valueInput:string) => {
@@ -86,6 +97,11 @@ const [active,setActive] = useState('My')
 
 
     return <div>
+        <Header handlerOnClick={handlerOnClick}
+            isLoggedIn={isLoggedIn}/>
+
+
+
         {/*Button*/}
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
             <Button >
