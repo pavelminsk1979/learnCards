@@ -11,6 +11,7 @@ import {DeleteIcon} from "./assets/icons/deleteIcon.tsx";
 import UserIcon from "./assets/icons/userIcon.svg";
 import {stateTabComponentType, TabComponent} from "./components/ui/tabComponent/tabComponent.tsx";
 import {Header} from "./components/ui/aHeader/header.tsx";
+import {NameAndIcon} from "./components/ui/nameAndIcon/nameAndIcon.tsx";
 
 
 export function App() {
@@ -162,7 +163,10 @@ const [active,setActive] = useState('My')
 
        {/* MenuDropDown*/}
         <div style={{padding: '8rem'}}>
-            <MenuDropDown data={state1} dataHeader={dataHeader}/>
+            <MenuDropDown
+                data={state1}
+                dataHeader={dataHeader}
+                component={<NameAndIcon/>}/>
             <MenuDropDown data={state2}/>
         </div>
 

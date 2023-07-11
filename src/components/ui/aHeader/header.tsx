@@ -1,7 +1,7 @@
 import st from './header.module.scss'
 import {IncubatorIcon} from "../../../assets/icons/incubatorIcon.tsx";
 import {Button} from "../button";
-import UserIcon from "../../../assets/icons/userIcon.svg";
+import {NameAndIcon} from "../nameAndIcon/nameAndIcon.tsx";
 
 type PropsType = {
     isLoggedIn: boolean
@@ -23,10 +23,7 @@ export const Header = ({isLoggedIn, handlerOnClick}: PropsType) => {
 
                 { isLoggedIn
 
-                    ? <div className={st.nameAndIcon}>
-                        <div className={st.name}>Pavel</div>
-                        <img src={UserIcon} className={st.icon}/>
-                    </div>
+                    ? <NameAndIcon/>
 
                     : <Button onClick={handlerOnClick}>
                         Sing in

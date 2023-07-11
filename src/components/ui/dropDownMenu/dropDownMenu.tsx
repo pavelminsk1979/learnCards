@@ -5,8 +5,9 @@ import st from './dropDownMenu.module.scss'
 type PropsType = {
     data:any[]
     dataHeader?:any
+    component?:any
 }
-export const MenuDropDown = ({data,dataHeader}:PropsType) => {
+export const MenuDropDown = ({data,dataHeader,component}:PropsType) => {
 
     const handlerOnClick = (id:any) => {
       data.find(e=>e.id==id).callback()
@@ -16,7 +17,9 @@ export const MenuDropDown = ({data,dataHeader}:PropsType) => {
 
         <DropdownMenu.Root >
 
-            <DropdownMenu.Trigger >0</DropdownMenu.Trigger>
+            <DropdownMenu.Trigger className={st.trigger} >
+                {component}
+            </DropdownMenu.Trigger>
 
             <DropdownMenu.Content className={st.blockMenu}>
                 {dataHeader&&
