@@ -12,6 +12,7 @@ import UserIcon from "./assets/icons/userIcon.svg";
 import {stateTabComponentType, TabComponent} from "./components/ui/tabComponent/tabComponent.tsx";
 import {Header} from "./components/ui/aHeader/header.tsx";
 import {NameAndIcon} from "./components/ui/nameAndIcon/nameAndIcon.tsx";
+import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
 
 
 export function App() {
@@ -91,6 +92,13 @@ const [active,setActive] = useState('My')
 
 
 
+
+
+    //Slider
+    const startArrayValue=[2,15]
+const sendValueFromSlice = (value:number[]) => {
+  alert(`Вы поставили левый ползунок на ${value[0]}  а правый на ${value[1]}`)
+}
 
 
 
@@ -180,6 +188,14 @@ const [active,setActive] = useState('My')
        {/* TabComponent*/}
         <div style={{padding: '8rem'}}>
             <TabComponent active={active} data={stateTabComponent}/>
+        </div>
+
+
+
+
+       {/* Slider*/}
+        <div style={{padding: '8rem'}}>
+            <SliderComponent callback={sendValueFromSlice} startArrayValue={startArrayValue}/>
         </div>
     </div>
 }

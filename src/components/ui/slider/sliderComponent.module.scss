@@ -1,0 +1,51 @@
+.common{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 36px;
+}
+
+.value{
+  width: 36px;
+  height: 100%;
+  border: 1px solid var(--color-dark-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color:var(--color-dark-100) ;
+}
+
+.SliderRoot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 20px;
+}
+
+.SliderTrack {
+  background-color: var( --color-accent-700);
+  position: relative;
+  flex-grow: 1;  /*Свойство flex-grow указывает пропорцию
+                доступного пространства внутри контейнера,
+                которое займет элемент. Значение 1 означает,
+              что элемент займет все доступное пространство,*/
+  height: 5px; /*высота полоски по которой бегает круг*/
+}
+
+
+.SliderThumb {
+  display: block; /*если убрать то не  кружки будут по линии
+                    бегать а палочки*/
+  width: 20px;
+  height: 20px;
+  background-color:var(--color-light-500) ;
+  border: 4px solid var( --color-accent-500);
+  border-radius: 10px;
+}
