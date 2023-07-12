@@ -1,9 +1,8 @@
-
 import {Button} from "./components/ui/button";
 import {Logout} from "./assets/icons/log-out.tsx";
 import {Input} from "./components/ui/input/input.tsx";
 import {useState} from "react";
-import { MenuDropDown} from "./components/ui/dropDownMenu/dropDownMenu.tsx";
+import {MenuDropDown} from "./components/ui/dropDownMenu/dropDownMenu.tsx";
 import {MyProfileIcon} from "./assets/icons/myProfileIcon.tsx";
 import {LearnIcon} from "./assets/icons/learnIcon.tsx";
 import {EditIcon} from "./assets/icons/editIcon.tsx";
@@ -13,31 +12,28 @@ import {stateTabComponentType, TabComponent} from "./components/ui/tabComponent/
 import {Header} from "./components/ui/aHeader/header.tsx";
 import {NameAndIcon} from "./components/ui/nameAndIcon/nameAndIcon.tsx";
 import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
+import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx";
 
 
 export function App() {
 
     //Header
-    const [isLoggedIn,setIsLoggedIn]=useState(false)
-const handlerOnClick = () => {
-    setIsLoggedIn(true)
-}
-
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const handlerOnClick = () => {
+        setIsLoggedIn(true)
+    }
 
 
 //Input
     const [valueInput, setValueInput] = useState('')
-    const handlerSendInputValue = (valueInput:string) => {
-      alert(valueInput)
+    const handlerSendInputValue = (valueInput: string) => {
+        alert(valueInput)
     }
-
-
 
 
 //DropDownMeny
     const functon1 = () => {
-      alert('Есть реакция1')
+        alert('Есть реакция1')
     }
     const functon2 = () => {
         alert('Есть реакция2')
@@ -52,68 +48,74 @@ const handlerOnClick = () => {
         alert('Есть реакция5')
     }
 
-    const state1=[
-        {id:1,icon:<MyProfileIcon width="22" height="22"/>,name:'My Profile',callback:functon1},
-        {id:2,icon:<Logout width="20" height="20"/>,name:'Sing Out',callback:functon2}
+    const state1 = [
+        {id: 1, icon: <MyProfileIcon width="22" height="22"/>, name: 'My Profile', callback: functon1},
+        {id: 2, icon: <Logout width="20" height="20"/>, name: 'Sing Out', callback: functon2}
     ]
-    const state2=[
-        {id:3,icon:<LearnIcon width="22" height="22"/>,name:'Learn',callback:functon3},
-        {id:4,icon:<EditIcon width="20" height="20"/>,name:'Edit',callback:functon4},
-        {id:5,icon:<DeleteIcon width="20" height="20"/>,name:'Delete',callback:functon5}
+    const state2 = [
+        {id: 3, icon: <LearnIcon width="22" height="22"/>, name: 'Learn', callback: functon3},
+        {id: 4, icon: <EditIcon width="20" height="20"/>, name: 'Edit', callback: functon4},
+        {id: 5, icon: <DeleteIcon width="20" height="20"/>, name: 'Delete', callback: functon5}
     ]
-    const dataHeader = {icon:<img src={UserIcon}/>,name:'Павел',gmail:'p&pavel@gmail.com'}
-
-
-
-
+    const dataHeader = {icon: <img src={UserIcon}/>, name: 'Павел', gmail: 'p&pavel@gmail.com'}
 
 
     //TabComponent
 
-const [active,setActive] = useState('My')
+    const [active, setActive] = useState('My')
 
-    const functionTabComponent1 = (name:string) => {
-      /*alert('Реакция на TabComponent1')*/
+    const functionTabComponent1 = (name: string) => {
+        /*alert('Реакция на TabComponent1')*/
         setActive(name)
     }
-    const functionTabComponent2 = (name:string) => {
-      /*  alert('Реакция на TabComponent2')*/
+    const functionTabComponent2 = (name: string) => {
+        /*  alert('Реакция на TabComponent2')*/
         setActive(name)
     }
-    const functionTabComponent3 = (name:string) => {
+    const functionTabComponent3 = (name: string) => {
         /*alert('Реакция на TabComponent3')*/
         setActive(name)
     }
-    const stateTabComponent:stateTabComponentType[] = [
-        {id:'tab1',name:'My',callback:functionTabComponent1,disabled:false},
-        {id:'tab2',name:'All',callback:functionTabComponent2,disabled:false},
-        {id:'tab3',name:'Трейтья',callback:functionTabComponent3,disabled:false}
+    const stateTabComponent: stateTabComponentType[] = [
+        {id: 'tab1', name: 'My', callback: functionTabComponent1, disabled: false},
+        {id: 'tab2', name: 'All', callback: functionTabComponent2, disabled: false},
+        {id: 'tab3', name: 'Трейтья', callback: functionTabComponent3, disabled: false}
     ]
 
 
-
-
-
     //Slider
-    const startArrayValue=[2,15]
-const sendValueFromSlice = (value:number[]) => {
-  alert(`Вы поставили левый ползунок на ${value[0]}  а правый на ${value[1]}`)
-}
+    const startArrayValue = [2, 15]
+    const sendValueFromSlice = (value: number[]) => {
+        alert(`Вы поставили левый ползунок на ${value[0]}  а правый на ${value[1]}`)
+    }
+
+
+//checkbox
+const checkboxText = 'Некоторый текст'
+    const [valueCheckboxTrue,setValueCheckboxTrue] = useState(true)
+/*    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)*/
+
+    const handlerCallbackCheckbox1 = (value:boolean) => {
+        setValueCheckboxTrue(value)
+    }
 
 
 
 
+    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)
+    const handlerCallbackCheckbox2 = (value:boolean) => {
+        setValueCheckboxFalse(value)
+    }
 
 
     return <div>
         <Header handlerOnClick={handlerOnClick}
-            isLoggedIn={isLoggedIn}/>
-
+                isLoggedIn={isLoggedIn}/>
 
 
         {/*Button*/}
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
-            <Button >
+            <Button>
                 Hello
             </Button>
 
@@ -132,14 +134,11 @@ const sendValueFromSlice = (value:number[]) => {
             <Button>
                 <Logout width="23" height="23"/> Hello
             </Button>
-        </div >
-
-
-
+        </div>
 
 
         {/*Input*/}
-        <div style={{ padding: '1rem'}}>
+        <div style={{padding: '1rem'}}>
             <div>
                 <Input valueInput={valueInput}
                        setValueInput={setValueInput}
@@ -151,25 +150,22 @@ const sendValueFromSlice = (value:number[]) => {
                 <Input valueInput={valueInput}
                        setValueInput={setValueInput}
                        placeholder={'Input'}
-                    label={'Input'}
+                       label={'Input'}
                        type="password"
-                      />
+                />
             </div>
             <div>
                 <Input callback={handlerSendInputValue}
-                    valueInput={valueInput}
+                       valueInput={valueInput}
                        setValueInput={setValueInput}
-                    placeholder={'Input search'}
-                    type='text'/>
+                       placeholder={'Input search'}
+                       type='text'/>
             </div>
 
         </div>
 
 
-
-
-
-       {/* MenuDropDown*/}
+        {/* MenuDropDown*/}
         <div style={{padding: '8rem'}}>
             <MenuDropDown
                 data={state1}
@@ -179,23 +175,29 @@ const sendValueFromSlice = (value:number[]) => {
         </div>
 
 
-
-
-
-
-
-
-       {/* TabComponent*/}
+        {/* TabComponent*/}
         <div style={{padding: '8rem'}}>
             <TabComponent active={active} data={stateTabComponent}/>
         </div>
 
 
-
-
-       {/* Slider*/}
+        {/* Slider*/}
         <div style={{padding: '8rem'}}>
             <SliderComponent callback={sendValueFromSlice} startArrayValue={startArrayValue}/>
+        </div>
+
+
+        <div style={{display:'flex',padding: '8rem'}}>
+            <CheckboxComponent
+                disabled={false}
+                checkboxText={checkboxText}
+                callback={handlerCallbackCheckbox1}
+                value={valueCheckboxTrue}/>
+            <CheckboxComponent
+                disabled={false}
+                checkboxText={checkboxText}
+                callback={handlerCallbackCheckbox2}
+                value={valueCheckboxFalse}/>
         </div>
     </div>
 }
