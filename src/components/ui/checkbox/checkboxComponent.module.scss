@@ -3,8 +3,14 @@
 .common{
   padding: 8px;
   display: flex;
-  gap: 8px;
   align-items: center;
+}
+
+.blockUnderCheckboxDisabled{
+  width: 55px;
+  height: 55px;
+  border-radius: 99px;
+  padding: 15px;
 }
 
 .blockUnderCheckbox{
@@ -21,7 +27,6 @@
 }
 
 .checkboxTrue {
- /* background-color: transparent;*/
   background-color: var(--color-light-100);
   border: 2px solid var(--color-light-100);
   width: 25px;
@@ -45,10 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /*  &:active {
-      background-color: var(--color-light-100);
-    }*/
 }
+
 
 .checkboxIndicator svg {/*  svg если убрать то галка не по середине
                                        будет распологатся */
@@ -57,10 +60,3 @@
 
 }
 
-/*
-.label {
-  color: white;
-  padding-left: 15px;
-  font-size: 15px;
-  line-height: 1;
-}*/

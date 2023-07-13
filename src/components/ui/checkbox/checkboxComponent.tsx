@@ -6,19 +6,24 @@ type PropsType = {
     checkboxText: string
     value: boolean
     callback: (value: boolean) => void
-    disabled:boolean
+    disabled: boolean
 }
 
-export const CheckboxComponent = ({value, callback, checkboxText,disabled}: PropsType) => {
+export const CheckboxComponent = ({value, callback, checkboxText, disabled}: PropsType) => {
 
     const handlerOnCheckedChange = (value: boolean) => {
         callback(value)
     }
 
-    return (
-        <div className={st.common}>
 
-            <div className={st.blockUnderCheckbox}>
+    return (
+        <div>
+
+            <label className={st.common}>
+
+                <div className={disabled
+                    ? st.blockUnderCheckboxDisabled
+                    : st.blockUnderCheckbox}>
 
                     <Checkbox.Root
                         disabled={disabled}
@@ -31,12 +36,13 @@ export const CheckboxComponent = ({value, callback, checkboxText,disabled}: Prop
                         </Checkbox.Indicator>
 
                     </Checkbox.Root>
-
                 </div>
 
-            <div>
-                {checkboxText}
-            </div>
+                <div>
+                    {checkboxText}
+                </div>
+
+            </label>
 
         </div>
     )
