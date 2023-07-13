@@ -13,6 +13,7 @@ import {Header} from "./components/ui/aHeader/header.tsx";
 import {NameAndIcon} from "./components/ui/nameAndIcon/nameAndIcon.tsx";
 import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
 import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx";
+import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
 
 
 export function App() {
@@ -108,6 +109,21 @@ const checkboxText = 'Некоторый текст'
     }
 
 
+    //RADIOGROUP
+    const stateRadioGroup:ElementRadio[] = [
+        {id:'1',text:'первый',name:'trainGroup',disabled:false},
+        {id:'2',text:'второй',name:'trainGroup',disabled:false},
+        {id:'3',text:'третий',name:'trainGroup',disabled:false},
+        {id:'4',text:'четвертый',name:'trainGroup',disabled:false},
+        {id:'5',text:'пятый',name:'trainGroup',disabled:false},
+        {id:'6',text:'шестой',name:'trainGroup',disabled:false},
+    ]
+    const handlerCallbackRadioGroup = (/*value:string*/) => {
+      /*alert(`Выбрана кнопка с айдишкой ${value}`)*/
+
+    }
+
+
     return <div>
         <Header handlerOnClick={handlerOnClick}
                 isLoggedIn={isLoggedIn}/>
@@ -198,6 +214,14 @@ const checkboxText = 'Некоторый текст'
                 checkboxText={checkboxText}
                 callback={handlerCallbackCheckbox2}
                 value={valueCheckboxFalse}/>
+        </div>
+
+
+
+        <div style={{padding: '8rem'}}>
+            <RadioGroupComponent
+                callback={handlerCallbackRadioGroup}
+                stateRadioGroup={stateRadioGroup}/>
         </div>
     </div>
 }
