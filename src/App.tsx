@@ -124,6 +124,14 @@ const checkboxText = 'Некоторый текст'
 
     }
 
+    //SELECT
+    const stateSelectItems = [
+        {value:'1',text:'Apple'},
+        {value:'2',text:'Banana'},
+        {value:'3',text:'AppleAndBanana'}
+    ]
+    let widthSelector= 200
+
 
     return <div>
         <Header handlerOnClick={handlerOnClick}
@@ -199,7 +207,7 @@ const checkboxText = 'Некоторый текст'
 
 
         {/* Slider*/}
-        <div style={{padding: '8rem'}}>
+        <div style={{padding: '15 rem'}}>
             <SliderComponent callback={sendValueFromSlice} startArrayValue={startArrayValue}/>
         </div>
 
@@ -227,7 +235,9 @@ const checkboxText = 'Некоторый текст'
 
 
         <div style={{padding: '8rem'}}>
-            <SelectComponent/>
+            <SelectComponent
+                widthSelector={widthSelector}
+                stateSelectItems={stateSelectItems}/>
         </div>
     </div>
 }

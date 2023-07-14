@@ -1,131 +1,73 @@
+import * as Select from '@radix-ui/react-select';
+import {ChevronDownIcon} from '@radix-ui/react-icons';
 import st from './selectComponent.module.scss'
-import {ArrowDownIcon} from "../../../assets/icons/arrowDownIcon.tsx";
-import {useState} from "react";
-
-export const SelectComponent = () => {
-
-    const elementArray = [
-        {id: '1', text: 'Some text'},
-        {id: '2', text: 'некоторый текст'}
-    ]
-
-    const [textSelect, setTextSelect] = useState('ВыбратьЧтоТо')
-
-    const [selectOpen, setSelectOpen] = useState(false)
 
 
-    const handlerOnClickElementArray = (text: string) => {
-        setTextSelect(text)
-        setSelectOpen(false)
-    }
-
-    const handlerOnClick = () => {
-        setSelectOpen(!selectOpen)
-    }
-
-    return (
-        selectOpen
-            ? <div className={st.commonSelectOpen}>
-                <div>
-                    <div className={st.header}>
-                        Select-box
-                    </div>
-
-                    <div onClick={handlerOnClick}
-                         className={st.titleFrame}>
-                        <div className={st.text}>ВыбратьЧтоТо</div>
-                        <div className={st.arrowDownIcon}>
-                            <ArrowDownIcon width="25" height="25"/></div>
-                    </div>
-                </div>
-                {
-                    elementArray.map((e) => {
-                        return (
-                            <div
-                                onClick={() => handlerOnClickElementArray(e.text)}
-                                className={st.textElementArray}
-                                key={e.id}>
-                                {e.text}
-                            </div>
-                        )
-                    })
-                }
-            </div>
-
-
-            : <div className={st.common}>
-                <div className={st.header}>
-                    Select-box
-                </div>
-
-                <div onClick={handlerOnClick}
-                     className={st.titleFrame}>
-                    <div className={st.text}>
-                        {textSelect}</div>
-                    <div className={st.arrowDownIcon}>
-                        <ArrowDownIcon width="25" height="25"/></div>
-                </div>
-            </div>
-    )
+export type ItemType = {
+    value: string
+    text: string
 }
 
+type PropsType = {
+    widthSelector?: number
+    stateSelectItems:ItemType[]
+}
 
-/*
-import * as Select from '@radix-ui/react-select';
-import {  ChevronDownIcon  } from '@radix-ui/react-icons';
-import st from './selectComponent.module.scss'
-
-
-
-export const SelectComponent = () => {
-    return(
-        <div className={st.common}>
-            <div className={st.title}>
-               Select-box
-            </div>
-            <Select.Root >
+export const SelectComponent = ({widthSelector, stateSelectItems}: PropsType) => {
 
 
-                <Select.Trigger
-                    className={st.selectTrigger}>
+    return (
 
-                    <Select.Value className={st.value}
-                        placeholder="ВыбратьЧтоТо" />
+        <Select.Root>
+            <Select.Trigger
+                style={{width: widthSelector}}
+                className={st.selectTrigger}>
 
-                    <Select.Icon >
-                        <ChevronDownIcon />
-                    </Select.Icon>
+                <Select.Value className={st.title}
+                              placeholder="ВыбратьЧтоТо"/>
 
-                </Select.Trigger>
+                <Select.Icon>
+                    <ChevronDownIcon/>
+                </Select.Icon>
 
-
-
-                <Select.Portal className={st.portal}>
-                    <Select.Content className={st.selectContent}  >
-                        <Select.Viewport >
-                            <Select.Group>
-                                {/!*<Select.Label>ЗАГОЛОВОК</Select.Label>*!/}
-
-                                <Select.Item value={'1'} >
-                                    <Select.ItemText>Apple</Select.ItemText>
-                                </Select.Item>
+            </Select.Trigger>
 
 
-                                <Select.Item value={'2'}>
-                                    <Select.ItemText>Banana</Select.ItemText>
-                                </Select.Item>
+            <Select.Portal>
+                <Select.Content
+                    style={{width: widthSelector}}
+                    className={st.selectContent}
+                    position='popper' /* - список строго под заголовком*/  >
+                    <Select.Viewport>
+                        <Select.Group>
+                            {
+                                stateSelectItems.map((e) => {
+                                    return (
+                                        <Select.Item
+                                            key={e.value}
+                                            className={st.item}
+                                            value={e.value}>
 
-                            </Select.Group>
+                                            <Select.ItemText
+                                                className={st.itemText}>
+                                                {e.text}
+                                            </Select.ItemText>
 
-                        </Select.Viewport>
+                                        </Select.Item>
+                                    )
+                                })
+                            }
 
-                    </Select.Content>
-                </Select.Portal>
+                        </Select.Group>
 
-            </Select.Root>
-        </div>
+                    </Select.Viewport>
+
+                </Select.Content>
+            </Select.Portal>
+
+        </Select.Root>
     )
-}*/
+}
 
 
 
