@@ -15,6 +15,7 @@ import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
 import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx";
 import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
 import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
+import {Paginator} from "./components/ui/paginator/paginatorComponent.tsx";
 
 
 export function App() {
@@ -126,11 +127,15 @@ const checkboxText = 'Некоторый текст'
 
     //SELECT
     const stateSelectItems = [
-        {value:'1',text:'Apple'},
-        {value:'2',text:'Banana'},
-        {value:'3',text:'AppleAndBanana'}
+        {value:'11',text:'Apple'},
+        {value:'22',text:'Banana'},
+        {value:'33',text:'AppleAndBanana'}
     ]
     let widthSelector= 200
+    let headerSelector="ВыбратьЧтоТо"
+    const handlerCallbackSelect = (value:string|undefined) => {
+      alert(value?value:'underfined')
+    }
 
 
     return <div>
@@ -236,8 +241,14 @@ const checkboxText = 'Некоторый текст'
 
         <div style={{padding: '8rem'}}>
             <SelectComponent
+                callback={handlerCallbackSelect}
+                headerSelector={headerSelector}
                 widthSelector={widthSelector}
                 stateSelectItems={stateSelectItems}/>
+        </div>
+
+        <div  style={{padding: '8rem'}}>
+            <Paginator allElements={1200}/>
         </div>
     </div>
 }

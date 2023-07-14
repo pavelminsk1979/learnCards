@@ -11,20 +11,27 @@ export type ItemType = {
 type PropsType = {
     widthSelector?: number
     stateSelectItems:ItemType[]
+    headerSelector:string
+    callback:(value:string|undefined)=>void
 }
 
-export const SelectComponent = ({widthSelector, stateSelectItems}: PropsType) => {
+export const SelectComponent = ({widthSelector, stateSelectItems,headerSelector,callback}: PropsType) => {
+
+    const handlerOnValueChange = (event:string) => {
+      let res = stateSelectItems.find(e=>e.value===event)
+        callback (res?.text)
+    }
 
 
     return (
 
-        <Select.Root>
+        <Select.Root onValueChange={handlerOnValueChange}>
             <Select.Trigger
                 style={{width: widthSelector}}
                 className={st.selectTrigger}>
 
                 <Select.Value className={st.title}
-                              placeholder="ВыбратьЧтоТо"/>
+                              placeholder={headerSelector}/>
 
                 <Select.Icon>
                     <ChevronDownIcon/>
