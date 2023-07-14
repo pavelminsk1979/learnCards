@@ -14,6 +14,7 @@ import {NameAndIcon} from "./components/ui/nameAndIcon/nameAndIcon.tsx";
 import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
 import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx";
 import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
+import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 
 
 export function App() {
@@ -222,6 +223,11 @@ const checkboxText = 'Некоторый текст'
             <RadioGroupComponent
                 callback={handlerCallbackRadioGroup}
                 stateRadioGroup={stateRadioGroup}/>
+        </div>
+
+
+        <div style={{padding: '8rem'}}>
+            <SelectComponent/>
         </div>
     </div>
 }
