@@ -10,36 +10,37 @@ type PropsType = {
 export const Paginator = ({allElements}: PropsType) => {
 
     const stateSelectItems = [
-        {value:'1',text:'10'},
-        {value:'2',text:'20'},
-        {value:'3',text:'30'},
-        {value:'4',text:'50'},
-        {value:'5',text:'100'}
+        {value:'1',text:'5'},
+        {value:'2',text:'8'},
+        {value:'3',text:'10'},
+        {value:'4',text:'12'},
+        {value:'5',text:'15'}
     ]
     let widthSelector= 80
     let headerSelector="10"
 
+const [amountElementsInOnePage,setAmountElementsInOnePage] = useState(10)
+    const handlerCallbackSelect = (amountElementsInOnePage = '10') => {
+        setAmountElementsInOnePage(Number(amountElementsInOnePage))
 
-    let amountPages = Math.ceil(allElements / 10)
+        /*сделать запрос на сервер чтоб возвращал данное количество элементов и они будут отрисованы на одной странице */
+    }
 
+    let amountPages = Math.ceil(allElements / amountElementsInOnePage)
+   let maxPart = amountPages/10
 
     let arrayNumbers = []
     for (let i = 1; i <= amountPages; i++) {
         arrayNumbers.push(i)
     }
 
-    const onClickHandler = (el: any) => {
-        el
+    const onClickHandler = (numberPage: any) => {
+        numberPage /*на сервер отправится запрос ЗА ЭЛЕМЕНТАМИ с страницы данного номера*/
     }
 
-
-    const [sizeOnePart,setSizeOnePart] = useState(10)
-    const handlerCallbackSelect = (value:string|undefined) => {
-        setSizeOnePart(Number(value))
-    }
 
     const [part, setPart] = useState(1)
-
+    const sizeOnePart = 10     /* размер одной части кнопок*/
     const numberStartPart = (part - 1) * sizeOnePart + 1
     const numberFinishPart = part * sizeOnePart
 
@@ -58,6 +59,7 @@ export const Paginator = ({allElements}: PropsType) => {
 
 
     const onClickNextPart = () => {
+        if(part<maxPart)
         setPart(part + 1)
         fetchActivePageHandler((part) * sizeOnePart + 1)
     }
