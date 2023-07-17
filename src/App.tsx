@@ -15,7 +15,7 @@ import {SliderComponent} from "./components/ui/slider/sliderComponent.tsx";
 import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx";
 import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
 import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
-import {Paginator} from "./components/ui/paginator/paginatorComponent.tsx";
+import {Pagination} from "./components/ui/paginator";
 
 
 export function App() {
@@ -137,6 +137,11 @@ const checkboxText = 'Некоторый текст'
       alert(value?value:'underfined')
     }
 
+    //PAGINATOR
+    const handlerOnChange = () => {
+     /* alert(pageNumber)*/
+    }
+
 
     return <div>
         <Header handlerOnClick={handlerOnClick}
@@ -248,7 +253,10 @@ const checkboxText = 'Некоторый текст'
         </div>
 
         <div  style={{padding: '8rem'}}>
-            <Paginator allElements={1200}/>
+            <Pagination
+                count={1000}
+            page={1}
+            onChange={handlerOnChange}/>
         </div>
     </div>
 }
