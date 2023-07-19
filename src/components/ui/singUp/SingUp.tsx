@@ -1,30 +1,39 @@
 
 import {Input} from "../input/input.tsx";
-import { useForm} from "react-hook-form";
+import {useController, useForm} from "react-hook-form";
 import {Button} from "../button/button.tsx";
+import {CheckboxComponent} from "../checkbox/checkboxComponent.tsx";
 
 
-/*type InputsType = {
-    email: string
-    password: number
-}*/
+
 export const SingUp = () => {
 
-    const {register,handleSubmit}=useForm()
+    const {register,handleSubmit, control}=useForm()
 
     const handlerOnSubmit: any = (data:any) => {
         console.log(data)
     }
 
+    const {
+        field: { value, onChange },
+    } = useController({
+        name: 'password',
+        control,
+        defaultValue: false,
+    })
+
   return(
       <form  onSubmit={handleSubmit(handlerOnSubmit)}>
-          <Input type={'email'}  label={'email'} {...register('email')}/>
+          <Input type={'email'}
+                 label={'email'}
+                 {...register('email')}/>
 
 
-          <Input type={'password'} label={'password'} {...register('password')}/>
+          <Input type={'password'}
+                 label={'password'}
+                 value={value } onChange={onChange}/>
 
-
-
+          <CheckboxComponent value={value } onChange={onChange}/>
 
           <Button type={'submit'}>
               Sing Up

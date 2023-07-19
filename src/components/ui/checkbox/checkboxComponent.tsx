@@ -3,16 +3,16 @@ import {CheckIcon} from '@radix-ui/react-icons';
 import st from './checkboxComponent.module.scss'
 
 type PropsType = {
-    checkboxText: string
-    value: boolean
-    callback: (value: boolean) => void
-    disabled: boolean
+    checkboxText?: string
+    value?: boolean
+    callback?: (value: boolean) => void
+    disabled?: boolean
 }
 
 export const CheckboxComponent = ({value, callback, checkboxText, disabled}: PropsType) => {
 
     const handlerOnCheckedChange = (value: boolean) => {
-        callback(value)
+        callback?.(value)
     }
 
 

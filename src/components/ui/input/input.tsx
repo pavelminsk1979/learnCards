@@ -27,16 +27,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputBaseType> (({type = 
                           setValueInput,
                           ...rest
                       },ref) => {
-/*    const {
-        type = 'text',
-        label,
-        className,
-        error,
-        valueInput,
-        callback,
-        setValueInput,
-        ...rest
-    } = props*/
+
 
 
     const [openCloseValueInput, setOpenCloseValueInput] = useState(true)
