@@ -16,12 +16,14 @@ import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx"
 import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
 import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 import {Pagination} from "./components/ui/paginator";
+import {SingUp} from "./components/ui/singUp/SingUp.tsx";
 
 
 export function App() {
 
     //Header
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     const handlerOnClick = () => {
         setIsLoggedIn(true)
     }
@@ -29,7 +31,9 @@ export function App() {
 
 //Input
     const [valueInput, setValueInput] = useState('')
+    console.log(valueInput,'valueInput')
     const handlerSendInputValue = (valueInput: string) => {
+
         alert(valueInput)
     }
 
@@ -175,14 +179,17 @@ const checkboxText = 'Некоторый текст'
         {/*Input*/}
         <div style={{padding: '1rem'}}>
             <div>
-                <Input valueInput={valueInput}
+                <Input
+                    callback={handlerSendInputValue}
+                    valueInput={valueInput}
                        setValueInput={setValueInput}
                        placeholder={'Input'}
                        label={'Input'}
                        type='email'/>
             </div>
             <div>
-                <Input valueInput={valueInput}
+                <Input callback={handlerSendInputValue}
+                    valueInput={valueInput}
                        setValueInput={setValueInput}
                        placeholder={'Input'}
                        label={'Input'}
@@ -257,6 +264,10 @@ const checkboxText = 'Некоторый текст'
                 count={1000}
             page={1}
             onChange={handlerOnChange}/>
+        </div>
+
+        <div style={{padding: '3rem'}}>
+            <SingUp />
         </div>
     </div>
 }

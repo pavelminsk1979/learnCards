@@ -1,8 +1,10 @@
-import {ChangeEvent, ComponentPropsWithoutRef, KeyboardEvent, useState} from "react";
-import st from './input.module.scss'
-import InputSearch from '../../../../src/assets/icons/inputSearch.svg'
-import IconEye from '../../../../src/assets/icons/IconOpenEye.svg'
-import Close from '../../../assets/icons/close.svg'
+
+
+import {ChangeEvent, ComponentPropsWithoutRef, KeyboardEvent, useState,forwardRef} from "react";
+import st from './input.module.scss';
+import InputSearch from '../../../../src/assets/icons/inputSearch.svg';
+import IconEye from '../../../../src/assets/icons/IconOpenEye.svg';
+import Close from '../../../assets/icons/close.svg';
 
 
 type  PropsInputBaseType = {
@@ -16,8 +18,16 @@ type  PropsInputBaseType = {
 } & ComponentPropsWithoutRef<'input'>
 
 
-export const Input = (props: PropsInputBaseType) => {
-    const {
+export const Input = forwardRef<HTMLInputElement, PropsInputBaseType> (({type = 'text',
+                          label,
+                          className,
+                          error,
+                          valueInput,
+                          callback,
+                          setValueInput,
+                          ...rest
+                      },ref) => {
+/*    const {
         type = 'text',
         label,
         className,
@@ -26,7 +36,7 @@ export const Input = (props: PropsInputBaseType) => {
         callback,
         setValueInput,
         ...rest
-    } = props
+    } = props*/
 
 
     const [openCloseValueInput, setOpenCloseValueInput] = useState(true)
@@ -49,6 +59,7 @@ export const Input = (props: PropsInputBaseType) => {
     const handlerCreateValueInput = (event: ChangeEvent<HTMLInputElement>) => {
         if (setValueInput) {
             setValueInput(event.currentTarget.value)
+
         }
     }
 
@@ -77,7 +88,8 @@ export const Input = (props: PropsInputBaseType) => {
                 {type === 'text' && <img src={InputSearch}/>}
 
                 <input
-                    className={`${st[type]}  ${className} 
+                    ref={ref}
+                    className={`${st[type]}  ${className}
                     ${error ? st.errorInput : st.input}`}
                     type={typeValue}
                     value={valueInput}
@@ -96,6 +108,115 @@ export const Input = (props: PropsInputBaseType) => {
         </>
     )
 }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
+
+import { ComponentProps, ComponentPropsWithoutRef, forwardRef } from 'react'
+
+
+
+
+
+export type TextFieldProps = {
+    onValueChange?: (value: string) => void
+    containerProps?: ComponentProps<'div'>
+
+
+
+} & ComponentPropsWithoutRef<'input'>
+
+
+
+export const Input = forwardRef<HTMLInputElement, TextFieldProps>(
+    (
+        {
+
+
+
+
+            containerProps,
+
+
+            onChange,
+            onValueChange,
+            ...restProps
+        },
+        ref
+    ) => {
+
+
+
+
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            onChange?.(e)
+            onValueChange?.(e.target.value)
+        }
+
+
+
+        return (
+            <div >
+
+                <div >
+                    <input
+
+
+                        ref={ref}
+
+                        onChange={handleChange}
+                        {...restProps}
+                    />
+
+                </div>
+
+
+            </div>
+        )
+    }
+)
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
