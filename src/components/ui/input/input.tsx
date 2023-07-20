@@ -1,13 +1,14 @@
 
 
-import {ChangeEvent, ComponentPropsWithoutRef, KeyboardEvent, useState,forwardRef} from "react";
-import st from './input.module.scss';
-import InputSearch from '../../../../src/assets/icons/inputSearch.svg';
-import IconEye from '../../../../src/assets/icons/IconOpenEye.svg';
-import Close from '../../../assets/icons/close.svg';
+
+import {ChangeEvent, ComponentPropsWithoutRef, KeyboardEvent, useState} from "react";
+import st from './input.module.scss'
+import InputSearch from '../../../../src/assets/icons/inputSearch.svg'
+import IconEye from '../../../../src/assets/icons/IconOpenEye.svg'
+import Close from '../../../assets/icons/close.svg'
 
 
-type  PropsInputBaseType = {
+export type  PropsInputBaseType = {
     label?: string
     type?: 'email' | 'password' | 'text'
     className?: string
@@ -18,16 +19,17 @@ type  PropsInputBaseType = {
 } & ComponentPropsWithoutRef<'input'>
 
 
-export const Input = forwardRef<HTMLInputElement, PropsInputBaseType> (({type = 'text',
-                          label,
-                          className,
-                          error,
-                          valueInput,
-                          callback,
-                          setValueInput,
-                          ...rest
-                      },ref) => {
-
+export const Input = (props: PropsInputBaseType) => {
+    const {
+        type = 'text',
+        label,
+        className,
+        error,
+        valueInput,
+        callback,
+        setValueInput,
+        ...rest
+    } = props
 
 
     const [openCloseValueInput, setOpenCloseValueInput] = useState(true)
@@ -79,7 +81,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputBaseType> (({type = 
                 {type === 'text' && <img src={InputSearch}/>}
 
                 <input
-                    ref={ref}
+
                     className={`${st[type]}  ${className}
                     ${error ? st.errorInput : st.input}`}
                     type={typeValue}
@@ -99,9 +101,6 @@ export const Input = forwardRef<HTMLInputElement, PropsInputBaseType> (({type = 
         </>
     )
 }
-)
-
-
 
 
 

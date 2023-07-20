@@ -2,17 +2,17 @@ import * as Checkbox from '@radix-ui/react-checkbox';
 import {CheckIcon} from '@radix-ui/react-icons';
 import st from './checkboxComponent.module.scss'
 
-type PropsType = {
+export type PropsCheckboxComponentType = {
     checkboxText?: string
     value?: boolean
-    callback?: (value: boolean) => void
+    onChange?: (value: boolean) => void
     disabled?: boolean
 }
 
-export const CheckboxComponent = ({value, callback, checkboxText, disabled}: PropsType) => {
+export const CheckboxComponent = ({value, onChange, checkboxText, disabled}: PropsCheckboxComponentType) => {
 
     const handlerOnCheckedChange = (value: boolean) => {
-        callback?.(value)
+        onChange?.(value)
     }
 
 

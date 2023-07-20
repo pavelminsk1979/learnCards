@@ -102,7 +102,7 @@ const checkboxText = 'Некоторый текст'
     const [valueCheckboxTrue,setValueCheckboxTrue] = useState(true)
 /*    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)*/
 
-    const handlerCallbackCheckbox1 = (value:boolean) => {
+    const handlerOnChangeCheckbox = (value:boolean) => {
         setValueCheckboxTrue(value)
     }
 
@@ -110,7 +110,7 @@ const checkboxText = 'Некоторый текст'
 
 
     const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)
-    const handlerCallbackCheckbox2 = (value:boolean) => {
+    const handlerOnChangeCheckbox1 = (value:boolean) => {
         setValueCheckboxFalse(value)
     }
 
@@ -233,12 +233,12 @@ const checkboxText = 'Некоторый текст'
             <CheckboxComponent
                 disabled={false}
                 checkboxText={checkboxText}
-                callback={handlerCallbackCheckbox1}
+                onChange={handlerOnChangeCheckbox}
                 value={valueCheckboxTrue}/>
             <CheckboxComponent
                 disabled={false}
                 checkboxText={checkboxText}
-                callback={handlerCallbackCheckbox2}
+                onChange={handlerOnChangeCheckbox1}
                 value={valueCheckboxFalse}/>
         </div>
 
