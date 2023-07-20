@@ -6,8 +6,11 @@ type ProrsType <T extends FieldValues>= {
   name:FieldPath<T>
 }& Omit<PropsInputBaseType, 'onChange'|'value'>
 export const ControlInput = <T extends FieldValues> ({control, name, ...rest}: ProrsType<T>) => {
+
     const {
-        field: {value, onChange},
+        field: {value, onChange,
+        },
+        fieldState:{error}
     } = useController({
         name,
         control,
@@ -15,6 +18,7 @@ export const ControlInput = <T extends FieldValues> ({control, name, ...rest}: P
 
     return (
         <Input
+            error={error?.message}
             value={value}
             onChange={onChange}
             {...rest}/>

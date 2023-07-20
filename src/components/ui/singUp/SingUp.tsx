@@ -3,16 +3,25 @@ import { useForm} from "react-hook-form";
 import {Button} from "../button/button.tsx";
 import {ControlInput} from "../../../common/controlInput.tsx";
 import {ControlCheckbox} from "../../../common/controlCheckbox.tsx";
+import {z} from "zod";
+import {zodResolver} from "@hookform/resolvers/zod";
 
-type FormType = {
-    email:string
-    password:number
-    rememberMe:boolean
-}
+const schema = z.object({
+    email: z.string().trim().email('Invalid email adress').nonempty('Enter email'),
+    password: z.string().trim().nonempty('Enter password').min(8,'Password must be more than 8 characters'),
+    rememberMe: z.boolean().optional(),
+})
+
+type FormType = z.infer<typeof schema>
 
 export const SingUp = () => {
 
-    const { handleSubmit, control} = useForm<FormType>()
+    const { handleSubmit, control,
+   } = useForm<FormType>({
+        resolver:zodResolver(schema),
+        mode:'onSubmit'
+    })
+
 
     const handlerOnSubmit: any = (data: any) => {
         console.log(data)
@@ -30,7 +39,8 @@ export const SingUp = () => {
                                control={control}
                                name={'password'}/>
 
-            <ControlCheckbox  control={control}
+            <ControlCheckbox  checkboxText={'Remember me'}
+                control={control}
                               name={'rememberMe'} />
 
             <Button type={'submit'}>
