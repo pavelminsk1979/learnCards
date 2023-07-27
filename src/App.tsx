@@ -17,6 +17,7 @@ import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radi
 import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 import {Pagination} from "./components/ui/paginator";
 import {SingUp} from "./components/ui/singUp/SingUp.tsx";
+import {Typography} from "./components/ui/typography/typography.tsx";
 
 
 export function App() {
@@ -266,8 +267,32 @@ const checkboxText = 'Некоторый текст'
             onChange={handlerOnChange}/>
         </div>
 
+
         <div style={{padding: '3rem'}}>
             <SingUp />
+        </div>
+
+        <div style={{padding: '8rem'}}>
+            <Typography as="h1" >маленькая потомучто если variant нет то будет variant='h3' </Typography>
+            <Typography as="h2" >h2</Typography>
+            <Typography as="h3" >h3</Typography>
+            <Typography as="h1" variant="link1" >h1+large</Typography>
+            <div>***********</div>
+            <Typography variant="large" >large</Typography>
+            <Typography variant="h1" >h1</Typography>
+            <Typography variant="h2" >h2</Typography>
+            <Typography variant="h3" >h3</Typography>
+            <Typography variant="body1" >body1</Typography>
+            <Typography variant="body2" >body2</Typography>
+            <Typography variant="subtitle1" >subtitle1</Typography>
+            <Typography variant="subtitle2" >subtitle2</Typography>
+            <Typography variant="caption" >caption</Typography>
+            <Typography variant="overline" >overline</Typography>
+            <Typography as="a" href="https://images.google.com/" target="_blank"variant="overline" >Если хотите чтото найти в гугле то нажмите сюда</Typography>
+            <div>
+                <Typography as="a" href="https://steamcommunity.com/sharedfiles/filedetails/?id=720094248" target="_blank"variant="link2" >Сайт с всякой-разной запрещонкой</Typography>
+            </div>
+
         </div>
     </div>
 }
