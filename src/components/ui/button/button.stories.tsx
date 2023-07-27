@@ -1,8 +1,9 @@
+import type {Meta, StoryObj} from '@storybook/react'
 
-import type { Meta, StoryObj } from '@storybook/react'
-
-import { Button } from './'
+import {Button} from './'
 import {Logout} from "../../../assets/icons/log-out.tsx";
+import {action} from "@storybook/addon-actions";
+import {useState} from "react";
 
 
 const meta = {
@@ -12,7 +13,7 @@ const meta = {
     argTypes: {
         variant: {
             options: ['primary', 'secondary', 'tertiary', 'link'],
-            control: { type: 'radio' },
+            control: {type: 'radio'},
         },
     },
 } satisfies Meta<typeof Button>;
@@ -20,19 +21,22 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/*
 
 export const Primary1: Story = {
-render: ()=> <Button label ={'Button'}/>
-} /!* надо изменить расширение файла на  tsx   и такой синтаксис
-позволит использовать хуки И БУДЕТ наглядно как взаимодействовать
-с компонентой*!/
-
-*/
+    render: () => {
+        const [value, setValue] = useState(0)
+        return <div>
+            {value}
+            <Button onClick={() => {
+                setValue(prev => prev + 1)
+            }}>NameButton</Button></div>
+    }
+}
 
 
 export const Primary: Story = {
     args: {
+        onClick: action('1111111'),
         variant: 'primary',
         children: 'Primary Button',
         disabled: false,
