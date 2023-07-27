@@ -33,6 +33,22 @@ export const Primary1: Story = {
     }
 }
 
+export const Primary2: Story = {
+    render: ({onClick, ...args}) => {
+        const [value, setValue] = useState(0)
+        return <div>
+            {value}
+            <Button onClick={() => {
+                onClick()
+                setValue(prev => prev + 1)
+            }}
+                    {...args}>Button</Button></div>
+    },
+    args: {
+        onClick: action('2222')
+    }
+}
+
 
 export const Primary: Story = {
     args: {
