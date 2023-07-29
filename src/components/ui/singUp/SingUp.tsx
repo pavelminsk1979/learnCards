@@ -5,6 +5,8 @@ import {ControlInput} from "../../../common/controlInput.tsx";
 import {ControlCheckbox} from "../../../common/controlCheckbox.tsx";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {Card} from "../card/card.tsx";
+import st from './SingUp.module.scss'
 
 const schema = z.object({
     email: z.string().trim().email('Invalid email adress').nonempty('Enter email'),
@@ -28,7 +30,9 @@ export const SingUp = () => {
     }
 
     return (
+
         <form onSubmit={handleSubmit(handlerOnSubmit)}>
+            <Card className={st.common}>
             <ControlInput label={'email'}
                           type={'email'}
                           control={control}
@@ -46,7 +50,9 @@ export const SingUp = () => {
             <Button type={'submit'}>
                 Sing Up
             </Button>
+            </Card>
         </form>
+
     )
 }
 

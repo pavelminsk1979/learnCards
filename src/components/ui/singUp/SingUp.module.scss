@@ -1,7 +1,11 @@
 .common{
   width: 420px;
-  height: 528px;
-  background: var(--color-dark-700);
+  height: 428px;
+  background: var(--color-danger-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 

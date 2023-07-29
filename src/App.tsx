@@ -18,6 +18,7 @@ import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 import {Pagination} from "./components/ui/paginator";
 import {SingUp} from "./components/ui/singUp/SingUp.tsx";
 import {Typography} from "./components/ui/typography/typography.tsx";
+import {Card} from "./components/ui/card/card.tsx";
 
 
 export function App() {
@@ -293,6 +294,16 @@ const checkboxText = 'Некоторый текст'
                 <Typography as="a" href="https://steamcommunity.com/sharedfiles/filedetails/?id=720094248" target="_blank"variant="link2" >Сайт с всякой-разной запрещонкой</Typography>
             </div>
 
+        </div>
+
+        <div style={{padding: '3rem'}}>
+            <Card>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </Card>
         </div>
     </div>
 }

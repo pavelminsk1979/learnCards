@@ -73,7 +73,7 @@ export const Input = (props: PropsInputBaseType) => {
 
 
     return (
-        <>
+        <div>
             {label && <div className={st.label}>{label}</div>}
 
             <div className={error ? st.error : st.blockIconInput}>
@@ -98,7 +98,7 @@ export const Input = (props: PropsInputBaseType) => {
 
             </div>
             {error && <div className={st.textError}>{error}</div>}
-        </>
+        </div>
     )
 }
 
