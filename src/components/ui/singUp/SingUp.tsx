@@ -26,7 +26,7 @@ export const SingUp = () => {
 
 
     const handlerOnSubmit: any = (data: any) => {
-        console.log(data)
+        alert(data)
     }
 
     return (

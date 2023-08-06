@@ -16,10 +16,9 @@ import {CheckboxComponent} from "./components/ui/checkbox/checkboxComponent.tsx"
 import {ElementRadio, RadioGroupComponent} from "./components/ui/radioGroup/radioGroupComponent.tsx";
 import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 import {Pagination} from "./components/ui/paginator";
-import {SingUp} from "./components/ui/singUp/SingUp.tsx";
 import {Typography} from "./components/ui/typography/typography.tsx";
 import {Card} from "./components/ui/card/card.tsx";
-
+import {Outlet,NavLink,useNavigate} from 'react-router-dom'
 
 export function App() {
 
@@ -147,6 +146,12 @@ const checkboxText = 'Некоторый текст'
     const handlerOnChange = () => {
      /* alert(pageNumber)*/
     }
+    
+    //ROUTER-DOM
+    const navigate = useNavigate()
+    const handlerLinkOnLogin = () => {
+        navigate('/login')
+    }
 
 
     return <div>
@@ -270,7 +275,11 @@ const checkboxText = 'Некоторый текст'
 
 
         <div style={{padding: '3rem'}}>
-            <SingUp />
+            <NavLink to={'/'}>Нажми и перейди на App</NavLink>
+            <NavLink to={'/login'}>Нажми и перейди на login</NavLink>
+            <NavLink to={'/lo'}>Нажми и перейди на ОШИБКУ</NavLink>
+            <button style={{color:'red'}} onClick={handlerLinkOnLogin}>Нажми и перейди на login</button>
+            <Outlet />
         </div>
 
         <div style={{padding: '8rem'}}>
