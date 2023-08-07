@@ -1,0 +1,45 @@
+
+.table{
+  border-collapse: collapse;
+  border-top: 1px solid var(--color-dark-500);
+  border-left: 1px solid var(--color-dark-500);
+  border-right: 1px solid var(--color-dark-500);
+
+}
+.header{
+  border-bottom: 1px solid var(--color-dark-500);
+  background-color: var(--color-dark-500);
+}
+.thHeader{
+
+ text-align: left;
+  padding: 0.38rem 1.5rem;
+  font-family: Roboto;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.tr td{
+  border-bottom: 1px solid var(--color-dark-500);
+  padding: 0.38rem 1.5rem;
+  height: 2.25rem;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.tdCommonStyle{
+  width: 12.5632rem;
+}
+.tdCreatedBy{
+  width: 17.875rem;
+}
+.tdIcons{
+  width:8rem;
+}
+.tdIcons > svg {
+  margin-right: 0.5rem;
+}
+

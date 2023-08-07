@@ -19,6 +19,7 @@ import {Pagination} from "./components/ui/paginator";
 import {Typography} from "./components/ui/typography/typography.tsx";
 import {Card} from "./components/ui/card/card.tsx";
 import {Outlet,NavLink,useNavigate} from 'react-router-dom'
+import {TableDecks} from "./components/ui/tableDecks/tableDecks.tsx";
 
 export function App() {
 
@@ -152,8 +153,39 @@ const checkboxText = 'Некоторый текст'
     const handlerLinkOnLogin = () => {
         navigate('/login')
     }
-
-
+    //TABLE-DECKS
+    const data = [
+        {
+            title: 'Pack Name1',
+            cardsCount: 10,
+            updated: '2023-07-07',
+            createdBy: 'Ivan Ivanov',
+        },
+        {
+            title: 'Pack Name2',
+            cardsCount: 5,
+            updated: '2023-07-06',
+            createdBy: 'Ivan Ivanov',
+        },
+        {
+            title: 'Pack Name3',
+            cardsCount: 8,
+            updated: '2023-07-05',
+            createdBy: 'Ivan Ivanov',
+        },
+        {
+            title: 'Pack Name4',
+            cardsCount: 3,
+            updated: '2023-07-07',
+            createdBy: 'Ivan Ivanov',
+        },
+        {
+            title: 'Pack Name5',
+            cardsCount: 12,
+            updated: '2023-07-04',
+            createdBy: 'Ivan Ivanov',
+        },
+    ]
     return <div>
         <Header handlerOnClick={handlerOnClick}
                 isLoggedIn={isLoggedIn}/>
@@ -313,6 +345,9 @@ const checkboxText = 'Некоторый текст'
                 <div>4</div>
                 <div>5</div>
             </Card>
+        </div>
+        <div style={{padding: '3rem'}}>
+            <TableDecks data={data}/>
         </div>
     </div>
 }
