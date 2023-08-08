@@ -154,7 +154,7 @@ const checkboxText = 'Некоторый текст'
         navigate('/login')
     }
     //TABLE-DECKS
-    const data = [
+    const dataContentTable = [
         {
             title: 'Pack Name1',
             cardsCount: 10,
@@ -185,6 +185,29 @@ const checkboxText = 'Некоторый текст'
             updated: '2023-07-04',
             createdBy: 'Ivan Ivanov',
         },
+    ]
+
+    const dataHeadersTable = [
+        {
+            key: 'name',
+            title: 'Name',
+        },
+        {
+            key: 'cardsCount',
+            title: 'Cards',
+        },
+        {
+            key: 'updated',
+            title: 'Last Updated',
+        },
+        {
+            key: 'createdBy',
+            title: 'Created by',
+        },
+        {
+            key:'action',
+            title:''
+        }
     ]
     return <div>
         <Header handlerOnClick={handlerOnClick}
@@ -337,7 +360,7 @@ const checkboxText = 'Некоторый текст'
 
         </div>
 
-        <div style={{padding: '3rem'}}>
+        <div style={{padding: '5rem'}}>
             <Card>
                 <div>1</div>
                 <div>2</div>
@@ -347,7 +370,8 @@ const checkboxText = 'Некоторый текст'
             </Card>
         </div>
         <div style={{padding: '3rem'}}>
-            <TableDecks data={data}/>
+            <TableDecks dataContentTable={dataContentTable}
+                        dataHeadersTable={dataHeadersTable}/>
         </div>
     </div>
 }
