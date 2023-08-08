@@ -209,6 +209,9 @@ const checkboxText = 'Некоторый текст'
             title:''
         }
     ]
+    const sendDataToServer = (value:string) => {
+      alert('sendDataToServer...   '+value)
+    }
     return <div>
         <Header handlerOnClick={handlerOnClick}
                 isLoggedIn={isLoggedIn}/>
@@ -371,7 +374,8 @@ const checkboxText = 'Некоторый текст'
         </div>
         <div style={{padding: '3rem'}}>
             <TableDecks dataContentTable={dataContentTable}
-                        dataHeadersTable={dataHeadersTable}/>
+                        dataHeadersTable={dataHeadersTable}
+                        sendDataToServer={sendDataToServer}/>
         </div>
     </div>
 }

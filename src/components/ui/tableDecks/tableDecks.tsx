@@ -19,29 +19,30 @@ type DataHeaderType = {
 type PropsType = {
     dataContentTable: DataItemType[]
     dataHeadersTable: DataHeaderType[]
+    sendDataToServer:(value:string)=>void
 }
 type SortType = {
     key: string
     direction: 'asc' | 'desc'
 } | null
-export const TableDecks = ({dataContentTable, dataHeadersTable}: PropsType) => {
+export const TableDecks = ({dataContentTable, dataHeadersTable,sendDataToServer}: PropsType) => {
     const [sort, setSort] = useState<SortType>(null)
-    console.log(sort?.key + 'Key')
-    console.log(sort?.direction + 'Direction')
     const handlerSort = (key: string) => {
         if(key!=='action'){
             if (sort && sort.key === key) {
-                setSort({
+                const updatedSort:SortType = {
                     key: key,
-                    direction: sort.direction === 'asc'
-                        ? 'desc'
-                        : 'asc'
-                })
+                    direction: sort.direction === 'asc' ? 'desc' : 'asc',
+                };
+                setSort(updatedSort)
+                sendDataToServer(`${updatedSort.key}-${updatedSort.direction}`)
             } else {
-                setSort({
+                const updatedSort:SortType = {
                     key: key,
-                    direction: 'asc'
-                })
+                    direction: 'asc',
+                };
+                setSort(updatedSort)
+                sendDataToServer(`${updatedSort.key}-${updatedSort.direction}`)
             }
         }
     }
