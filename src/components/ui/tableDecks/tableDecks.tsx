@@ -53,9 +53,10 @@ export const TableDecks = ({dataContentTable, dataHeadersTable,sendDataToServer}
                 {dataHeadersTable.map(el => (
                     <th key={el.key} className={st.thHeader} onClick={() => handlerSort(el.key)}>
                         {el.title}
-                        {sort===null||sort?.direction==='asc'
-                            ?<ArrowUpIcon/>
-                        :<ArrowIconDown/>}
+                        { sort === null && <ArrowUpIcon/>}
+                        { sort?.key === el.key && sort?.direction === 'asc' && <ArrowUpIcon/>}
+                        { sort?.key === el.key && sort?.direction === 'desc' && <ArrowIconDown/>}
+                        { sort && sort?.key !== el.key && <ArrowUpIcon/>}
                     </th>
                 ))
                 }
