@@ -204,10 +204,6 @@ const checkboxText = 'Некоторый текст'
             key: 'createdBy',
             title: 'Created by',
         },
-        {
-            key:'action',
-            title:''
-        }
     ]
     const sendDataToServer = (value:string) => {
       alert('sendDataToServer...   '+value)
