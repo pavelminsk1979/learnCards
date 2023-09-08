@@ -18,8 +18,9 @@ import {SelectComponent} from "./components/ui/select/selectComponent.tsx";
 import {Pagination} from "./components/ui/paginator";
 import {Typography} from "./components/ui/typography/typography.tsx";
 import {Card} from "./components/ui/card/card.tsx";
-import {Outlet,NavLink,useNavigate} from 'react-router-dom'
+import {Outlet, NavLink, useNavigate} from 'react-router-dom'
 import {TableDecks} from "./components/ui/tableDecks/tableDecks.tsx";
+import {SwitchComponent} from "./components/ui/switch/switch.tsx";
 
 export function App() {
 
@@ -33,7 +34,7 @@ export function App() {
 
 //Input
     const [valueInput, setValueInput] = useState('')
-    console.log(valueInput,'valueInput')
+    console.log(valueInput, 'valueInput')
     const handlerSendInputValue = (valueInput: string) => {
 
         alert(valueInput)
@@ -100,54 +101,52 @@ export function App() {
 
 
 //checkbox
-const checkboxText = 'Некоторый текст'
-    const [valueCheckboxTrue,setValueCheckboxTrue] = useState(true)
-/*    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)*/
+    const checkboxText = 'Некоторый текст'
+    const [valueCheckboxTrue, setValueCheckboxTrue] = useState(true)
+    /*    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)*/
 
-    const handlerOnChangeCheckbox = (value:boolean) => {
+    const handlerOnChangeCheckbox = (value: boolean) => {
         setValueCheckboxTrue(value)
     }
 
 
-
-
-    const [valueCheckboxFalse,setValueCheckboxFalse] = useState(false)
-    const handlerOnChangeCheckbox1 = (value:boolean) => {
+    const [valueCheckboxFalse, setValueCheckboxFalse] = useState(false)
+    const handlerOnChangeCheckbox1 = (value: boolean) => {
         setValueCheckboxFalse(value)
     }
 
 
     //RADIOGROUP
-    const stateRadioGroup:ElementRadio[] = [
-        {id:'1',text:'первый',name:'trainGroup',disabled:false},
-        {id:'2',text:'второй',name:'trainGroup',disabled:false},
-        {id:'3',text:'третий',name:'trainGroup',disabled:false},
-        {id:'4',text:'четвертый',name:'trainGroup',disabled:false},
-        {id:'5',text:'пятый',name:'trainGroup',disabled:false},
-        {id:'6',text:'шестой',name:'trainGroup',disabled:false},
+    const stateRadioGroup: ElementRadio[] = [
+        {id: '1', text: 'первый', name: 'trainGroup', disabled: false},
+        {id: '2', text: 'второй', name: 'trainGroup', disabled: false},
+        {id: '3', text: 'третий', name: 'trainGroup', disabled: false},
+        {id: '4', text: 'четвертый', name: 'trainGroup', disabled: false},
+        {id: '5', text: 'пятый', name: 'trainGroup', disabled: false},
+        {id: '6', text: 'шестой', name: 'trainGroup', disabled: false},
     ]
     const handlerCallbackRadioGroup = (/*value:string*/) => {
-      /*alert(`Выбрана кнопка с айдишкой ${value}`)*/
+        /*alert(`Выбрана кнопка с айдишкой ${value}`)*/
 
     }
 
     //SELECT
     const stateSelectItems = [
-        {value:'11',text:'Apple'},
-        {value:'22',text:'Banana'},
-        {value:'33',text:'AppleAndBanana'}
+        {value: '11', text: 'Apple'},
+        {value: '22', text: 'Banana'},
+        {value: '33', text: 'AppleAndBanana'}
     ]
-    let widthSelector= 200
-    let headerSelector="ВыбратьЧтоТо"
-    const handlerCallbackSelect = (value:string|undefined) => {
-      alert(value?value:'underfined')
+    let widthSelector = 200
+    let headerSelector = "ВыбратьЧтоТо"
+    const handlerCallbackSelect = (value: string | undefined) => {
+        alert(value ? value : 'underfined')
     }
 
     //PAGINATOR
     const handlerOnChange = () => {
-     /* alert(pageNumber)*/
+        /* alert(pageNumber)*/
     }
-    
+
     //ROUTER-DOM
     const navigate = useNavigate()
     const handlerLinkOnLogin = () => {
@@ -205,14 +204,20 @@ const checkboxText = 'Некоторый текст'
             title: 'Created by',
         },
     ]
-    const sendDataToServer = (value:string) => {
-      alert('sendDataToServer...   '+value)
+    const sendDataToServer = (value: string) => {
+        alert('sendDataToServer...   ' + value)
+    }
+    {/* SWITCH*/}
+    const handlerOnChackedChange = (checked: boolean) => {
+        alert(checked)
     }
     return <div>
         <Header handlerOnClick={handlerOnClick}
                 isLoggedIn={isLoggedIn}/>
-
-
+        {/* SWITCH*/}
+        <div style={{padding: '3rem'}}>
+            <SwitchComponent handlerOnChackedChange={handlerOnChackedChange}/>
+        </div>
         {/*Button*/}
         <div style={{display: 'flex', gap: '1rem', padding: '1rem'}}>
             <Button>
@@ -243,14 +248,14 @@ const checkboxText = 'Некоторый текст'
                 <Input
                     callback={handlerSendInputValue}
                     valueInput={valueInput}
-                       setValueInput={setValueInput}
-                       placeholder={'Input'}
-                       label={'Input'}
-                       type='email'/>
+                    setValueInput={setValueInput}
+                    placeholder={'Input'}
+                    label={'Input'}
+                    type='email'/>
             </div>
             <div>
                 <Input callback={handlerSendInputValue}
-                    valueInput={valueInput}
+                       valueInput={valueInput}
                        setValueInput={setValueInput}
                        placeholder={'Input'}
                        label={'Input'}
@@ -290,7 +295,7 @@ const checkboxText = 'Некоторый текст'
         </div>
 
 
-        <div style={{display:'flex',padding: '8rem'}}>
+        <div style={{display: 'flex', padding: '8rem'}}>
             <CheckboxComponent
                 disabled={false}
                 checkboxText={checkboxText}
@@ -302,7 +307,6 @@ const checkboxText = 'Некоторый текст'
                 onChange={handlerOnChangeCheckbox1}
                 value={valueCheckboxFalse}/>
         </div>
-
 
 
         <div style={{padding: '8rem'}}>
@@ -320,11 +324,11 @@ const checkboxText = 'Некоторый текст'
                 stateSelectItems={stateSelectItems}/>
         </div>
 
-        <div  style={{padding: '8rem'}}>
+        <div style={{padding: '8rem'}}>
             <Pagination
                 count={1000}
-            page={1}
-            onChange={handlerOnChange}/>
+                page={1}
+                onChange={handlerOnChange}/>
         </div>
 
 
@@ -332,29 +336,31 @@ const checkboxText = 'Некоторый текст'
             <NavLink to={'/'}>Нажми и перейди на App</NavLink>
             <NavLink to={'/login'}>Нажми и перейди на login</NavLink>
             <NavLink to={'/lo'}>Нажми и перейди на ОШИБКУ</NavLink>
-            <button style={{color:'red'}} onClick={handlerLinkOnLogin}>Нажми и перейди на login</button>
-            <Outlet />
+            <button style={{color: 'red'}} onClick={handlerLinkOnLogin}>Нажми и перейди на login</button>
+            <Outlet/>
         </div>
 
         <div style={{padding: '8rem'}}>
-            <Typography as="h1" >маленькая потомучто если variant нет то будет variant='h3' </Typography>
-            <Typography as="h2" >h2</Typography>
-            <Typography as="h3" >h3</Typography>
-            <Typography as="h1" variant="link1" >h1+large</Typography>
+            <Typography as="h1">маленькая потомучто если variant нет то будет variant='h3' </Typography>
+            <Typography as="h2">h2</Typography>
+            <Typography as="h3">h3</Typography>
+            <Typography as="h1" variant="link1">h1+large</Typography>
             <div>***********</div>
-            <Typography variant="large" >large</Typography>
-            <Typography variant="h1" >h1</Typography>
-            <Typography variant="h2" >h2</Typography>
-            <Typography variant="h3" >h3</Typography>
-            <Typography variant="body1" >body1</Typography>
-            <Typography variant="body2" >body2</Typography>
-            <Typography variant="subtitle1" >subtitle1</Typography>
-            <Typography variant="subtitle2" >subtitle2</Typography>
-            <Typography variant="caption" >caption</Typography>
-            <Typography variant="overline" >overline</Typography>
-            <Typography as="a" href="https://images.google.com/" target="_blank"variant="overline" >Если хотите чтото найти в гугле то нажмите сюда</Typography>
+            <Typography variant="large">large</Typography>
+            <Typography variant="h1">h1</Typography>
+            <Typography variant="h2">h2</Typography>
+            <Typography variant="h3">h3</Typography>
+            <Typography variant="body1">body1</Typography>
+            <Typography variant="body2">body2</Typography>
+            <Typography variant="subtitle1">subtitle1</Typography>
+            <Typography variant="subtitle2">subtitle2</Typography>
+            <Typography variant="caption">caption</Typography>
+            <Typography variant="overline">overline</Typography>
+            <Typography as="a" href="https://images.google.com/" target="_blank" variant="overline">Если хотите чтото
+                найти в гугле то нажмите сюда</Typography>
             <div>
-                <Typography as="a" href="https://steamcommunity.com/sharedfiles/filedetails/?id=720094248" target="_blank"variant="link2" >Сайт с всякой-разной запрещонкой</Typography>
+                <Typography as="a" href="https://steamcommunity.com/sharedfiles/filedetails/?id=720094248"
+                            target="_blank" variant="link2">Сайт с всякой-разной запрещонкой</Typography>
             </div>
 
         </div>
